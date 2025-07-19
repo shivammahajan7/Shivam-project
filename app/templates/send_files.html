@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender with File Upload</title>
+    <!-- Add Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Secure File Transfer System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/manage-files">Manage Files</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/send-files">Send Files</a>					
+                    </li>					
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>	
+    <div class="container mt-4">
+        <div class="email-container p-3 border">
+            <div class="text-center">
+                <h1 class="mb-3">Email Sender</h1>
+            </div>
+            <div class="p-3">
+                <form action="/send-files" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="recipient" class="form-label">Recipient:</label>
+                        <input type="email" class="form-control" id="recipient" name="recipient" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject:</label>
+                        <input type="text" class="form-control" id="subject" name="subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="attachment" class="form-label">Attachment:</label>
+                        <select class="form-control" id="attachment" name="attachment">
+						<option value="" selected>Choose a file from your bucket</option>
+						{% for file in my_files %}
+						<option value="{{ file.filename }}">{{ file.filename }}</option>
+						{% endfor %}
+						</select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Email</button>
+                </form>
+            </div>
+            <div class="text-center pt-3">
+                <p class="text-muted">This email sending form is for secure transfer only.</p>
+                {% if message_sent == True %}
+                <p class="text-success">Email sent successfully!</p>
+                {% elif message_sent == False %}
+                <p class="text-danger">Email sending failed. Error: {{ error_message }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery CDN links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
