@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to the Secure File Transfer System</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .jumbotron {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin: 0;
+            animation: fadeIn 1.5s ease-in-out forwards; /* Apply the animation here */
+            opacity: 0;
+        }
+        .btn-lg {
+            font-size: 1.25rem;
+            padding: 0.75rem 2.5rem;
+        }
+        .features {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+        footer {
+            padding: 10px;
+            background-color: #343a40; /* Background color for footer */
+            text-align: center;
+            margin-top: auto;
+            color: #ffffff; /* Text color for footer */
+            width: 100%; /* Make the footer full width */
+        }
+        .footer-link {
+            color: #f8f9fa; /* Link color for footer */
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .jumbotron {
+                padding: 3rem;
+            }
+            .btn-lg {
+                font-size: 1.5rem;
+                padding: 1rem 3rem;
+            }
+            .features {
+                font-size: 1.25rem;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Secure File Transfer System</h1>
+        <p class="lead">This is a secure platform designed for hassle-free and secure file transfer and management. Our system ensures that your files are kept safe and confidential throughout the transfer process.</p>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="/login" class="btn btn-primary btn-lg mr-3">Login</a>
+            <a href="/register" class="btn btn-success btn-lg">Register</a>
+        </div>
+        <div class="features mt-4">
+            <p>Key Features:</p>
+            <ul>
+                <li>Secure File Encryption</li>
+                <li>User-friendly File Upload</li>
+                <li>Reliable and Efficient</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>
+            <a class="footer-link" href="#">Privacy Policy</a> | <a class="footer-link" href="#">Terms of Use</a> | <a class="footer-link" href="#">Contact Us</a> | &copy; 2023 Secure File Transfer System
+        </p>
+    </footer>
+    <!-- Add Bootstrap JS (optional, but some Bootstrap features may require it) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
