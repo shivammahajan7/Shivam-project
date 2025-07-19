@@ -1,0 +1,27 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: secure_file_system
+      POSTGRES_USER: ruegen
+      POSTGRES_PASSWORD: ruegen
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mynetwork
+
+  flask:
+    build:
+      context: ./app
+    image: mohanthosare/securefrontend
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URI: "postgresql://ruegen:ruegen@postgres/secure_file_system"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
